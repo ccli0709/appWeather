@@ -1,0 +1,13 @@
+<ion-view view-title="設定">
+	<ion-content>
+		<ion-list>
+			<ion-toggle
+				ng-repeat='city in citys'
+				ng-model='city.on'>
+					<i class="icon ion-gear-b"></i>
+					{{ city.name }}
+					<span class='calm'>{{ city.q }}</span>
+			</ion-toggle>
+		</ion-list>
+	</ion-content>
+</ion-view>

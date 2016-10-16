@@ -1,0 +1,14 @@
+<ion-view view-title="天氣">
+	<ion-content>
+		<ion-list class="list">
+			<ion-item
+				class="item item-icon-left"
+				ng-repeat="city in citys"
+				ng-click='showWeather(city.q)'
+				ng-show="city.on">
+			<i class="icon ion-ios-home-outline"></i>
+			{{ city.name }} <span class='calm'>{{ city.q }}
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

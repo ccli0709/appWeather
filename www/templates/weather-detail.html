@@ -1,0 +1,31 @@
+<ion-view view-title="{{weather.name}}">
+  <ion-content class="padding">
+	   
+	<div class="list">
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">城市</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.name'>
+  		</label>
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">概況</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.weather[0].description'>
+  		</label>
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">溫度</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.main.temp'>
+  		</label>
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">濕度</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.main.humidity'>
+  		</label>
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">風速</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.wind.speed'>
+  		</label>
+  		<label class="item item-input item-stacked-label">
+    		<span class="input-label">風向</span>
+    		<input type="text" ng-readonly='true' ng-model='weather.wind.deg'>
+  		</label>
+	</div>
+  </ion-content>
+</ion-view>
