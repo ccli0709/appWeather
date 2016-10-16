@@ -12,7 +12,8 @@
   		</label>
   		<label class="item item-input item-stacked-label">
     		<span class="input-label">溫度</span>
-    		<input type="text" ng-readonly='true' ng-model='weather.main.temp'>
+    		<br />{{ weather.main.temp | number:2 }} °C  
+    		( {{ weather.main.tempF | number:2 }} °F )
   		</label>
   		<label class="item item-input item-stacked-label">
     		<span class="input-label">濕度</span>

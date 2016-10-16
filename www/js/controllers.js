@@ -9,24 +9,20 @@ angular.module('starter.controllers', [])
 	};
 })
 
-.controller('WeatherDetailCtrl', function($scope, $stateParams, $http) {
+.controller(
+		'WeatherDetailCtrl',
+		function($scope, $stateParams, $http, TemperatureService) {
 
-	$http.get("http://api.openweathermap.org/data/2.5/weather", {
-		params : {
-			"q" : $stateParams.q,
-			"APPID" : "c412b63b877a914c8825a6b1c8ff8ea4",
-			"units" : "metric",
-			"lang" : "zh"
-
-		}
-	}).then(function(resp) {
-		$scope.weather = resp.data;
-		console.log($scope.weather);
-	}, function(err) {
-		alert("Oops!");
-	})
-
-})
+			// 重構透過網路API取得資料的部份到SERVICE裡
+			TemperatureService.getDataByCity($stateParams.q).then(
+					function(resp) {
+						$scope.weather = resp.data;
+						$scope.weather.main.tempF = TemperatureService
+								.cToF($scope.weather.main.temp);
+					}, function(err) {
+						alert(err);
+					});
+		})
 
 .controller('SettingCtrl', function($scope, Citys) {
 	$scope.citys = Citys.all();

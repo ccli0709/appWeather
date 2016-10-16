@@ -1,4 +1,31 @@
-angular.module('starter.services', []).factory('Citys', function() {
+angular.module('starter.services', [])
+.factory('TemperatureService',
+		function($http) {
+			var times = 1.8;
+			var base = 32;
+
+			return {
+				cToF : function(degree) {
+					return degree * times + base;
+				},
+				fToC : function(degree) {
+					return (degree - base) / times;
+				},
+				getDataByCity: function (city) {
+
+					return $http.get("http://api.openweathermap.org/data/2.5/weather", {
+                		params : {
+                			"q" : city,
+                			"APPID" : "c412b63b877a914c8825a6b1c8ff8ea4",
+                			"units" : "metric",
+                			"lang" : "zh"
+                		}
+                	});
+
+                }
+			}
+		})
+.factory('Citys', function() {
 	// Might use a resource here that returns a JSON array
 
 	var citys = [ {
